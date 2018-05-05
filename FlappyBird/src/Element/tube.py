@@ -12,7 +12,7 @@ class Tube:
         self.__w_size = w_size
         self.__display = display
         self.__tube = []
-        self.__tube.append([w_size[0], w_size[1] // 2, 100, False])
+        self.__tube.append([w_size[0], w_size[1] // 2, 100, False]) # Pos w,h; space between 2 tubes up down ; whether be passed
 
     def __create(self):
         x = self.__w_size[0]
@@ -39,6 +39,6 @@ class Tube:
 
     def render(self):
         for i in self.__tube:
-            pygame.draw.rect(self.__display, self.__TUBE_COLOR, (i[0], 0, self.__TUBE_SIZE, i[1]))
+            pygame.draw.rect(self.__display, self.__TUBE_COLOR, (i[0], 0, self.__TUBE_SIZE, i[1]), 5)
             pygame.draw.rect(self.__display, self.__TUBE_COLOR,
-                             (i[0], i[1] + i[2], self.__TUBE_SIZE, self.__w_size[1] - (i[1] + i[2])))
+                             (i[0], i[1] + i[2], self.__TUBE_SIZE, self.__w_size[1] - (i[1] + i[2])), 5)

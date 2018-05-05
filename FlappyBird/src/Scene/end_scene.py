@@ -28,13 +28,14 @@ class EndScene(Scene):
 
     def update(self):
         super().update()
+        # Event handling
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 exit()
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
-                    # Tap
+                    # Change Scene to Title Scene
                     self._isEndScene = True
                 else: pass
             else: pass
@@ -45,7 +46,7 @@ class EndScene(Scene):
         self._display.blit(self.__title_lbl,
                         ((self._w_size[0] - self.__title_lbl.get_width()) // 2,
                          self._w_size[1] // 3 - self.__title_lbl.get_height() // 2))
+        # Render tutorial
         self._display.blit(self.__tut_lbl,
                            ((self._w_size[0] - self.__tut_lbl.get_width()) // 2,
                             self._w_size[1] // 2 - self.__tut_lbl.get_height() // 2))
-        # Render tutorial

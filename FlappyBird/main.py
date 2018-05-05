@@ -30,6 +30,7 @@ while True:
     # Set background color
     game_display.fill(WORLD_COLOR)
 
+    # Transition of scenes:
     if scene_manager.get_scene().end():
         if scene_manager.get_scene().get_id() == 1:
             # Change to Game Scene

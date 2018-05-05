@@ -17,6 +17,7 @@ class Bird:
         self.__clock = 0.5
         self.__die = False
 
+        # Audio of bird
         flap_path = os.path.abspath("sounds/sfx_wing.ogg")
         self.__flap_effect = pygame.mixer.Sound(flap_path)
 
@@ -26,15 +27,16 @@ class Bird:
         self.__pos[1] -= self.__JUMP_HEIGHT
 
     def update(self):
-        if not self.__pos[1] >= self.__w_size[1]:
+        if not self.__pos[1] >= self.__w_size[1]: # Prevent bird not to fall over the screen
+            # Fall:
             self.__clock += 1 / 60
-            self.__pos[1] += round(self.__GRAVITY * self.__clock ** 2)
+            self.__pos[1] += round(self.__GRAVITY * self.__clock ** 2) 
         else:
             # If bird fall to ground:
             self.__die = True
 
     def render(self):
-        pygame.draw.circle(self.__display, self.__COLOR, tuple(self.__pos), self.__RATIO)
+        pygame.draw.circle(self.__display, self.__COLOR, tuple(self.__pos), self.__RATIO, 5)
 
     def get_pos(self):
         return self.__pos
